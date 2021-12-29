@@ -1,0 +1,10 @@
+{
+  "name": "{{ project.name }}",
+  "author": "{{ user.name }}",
+  "version": "1.0.0",
+  "description": "{{ project.description }}",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  {{ license.wanted ? "license": "{{ license.name }}" }}
+}

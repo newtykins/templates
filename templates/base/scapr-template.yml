@@ -1,0 +1,9 @@
+exclude:
+    - .github/workflows/updateLicense.yml
+
+conditionals:
+    license.wanted:
+        include:
+            - .github/workflows/updateLicense.yml
+        warning:
+            - Your GitHub repository must be provided with a GITHUB_TOKEN to allow the update license action to work. Please ensure that you provide this!
