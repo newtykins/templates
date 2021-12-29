@@ -1,0 +1,19 @@
+name: 'Stale issue handler'
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '0 0 * * *'
+
+jobs:
+    stale:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/stale@main
+              id: stale
+              with:
+                  stale-issue-message: 'This issue has been automatically marked as stale as it has been open for 30 days with no activity. Please remove the stale label or comment, otheriwse this issue will be closed in 5 days!'
+                  days-before-stale: 30
+                  days-before-close: 5
+                  exempt-issue-labels: 'blocked,must,should,keep'
+            - name: Print outputs
+              run: echo ${{ join(steps.stale.outputs.*, ',') }}
